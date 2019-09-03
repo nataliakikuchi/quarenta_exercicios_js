@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html>
+<meta charset="utf-8">
+
+<script>
+//EXERCÍCIO DE INTRODUÇÃO AOS OBJETOS
+
+var ourDog = { //ourDog é o OBJETO
+  "name": "Camper", //name, legs, tails e friends são propriedades do objeto
+  "legs": 4, //Camper, 4, 1 e everything são valores das propriedades do objeto
+  "tails": 1,
+  "friends": ["everything!"]
+};
+
+
+var myDog = {
+  "name": "Doguinho",
+  "legs": 4,
+  "tails": 1,
+  "friends":["Nat", "Natinha"]
+
+
+  //EXERCÍCIO PARA ACESSAR AS PROPRIEDADES DO OBJETO COM PONTO .
+  //Read in the property values of testObj using dot notation. Set the variable hatValue equal to the
+  //object's property hat and set the variable shirtValue equal to the object's property shirt.
+
+  var testObj = {
+  "hat": "ballcap",
+  "shirt": "jersey",
+  "shoes": "cleats"
+};
+
+var hatValue = testObj.hat;
+var shirtValue = testObj.shirt;
+
+//EXERCÍCIO PARA ACESSAR AS PROPRIEDADES DO OBJETO COM CHAVES []
+//Read the values of the properties "an entree" and "the drink" of testObj using bracket notation and
+//assign them to entreeValue and drinkValue respectively.
+
+var testObj = {
+  "an entree": "hamburger",
+  "my side": "veggies",
+  "the drink": "water"
+};
+
+
+var entreeValue = testObj["an entree"];
+var drinkValue = testObj["the drink"];
+
+//EXERCÍCIO PARA ACESSAR AS PROPRIEDADES DO OBJETO COM VARIÁVEL
+// Use the playerNumber variable to look up player 16 in testObj using bracket notation.
+//Then assign that name to the player variable.
+
+//Use a variável playerNumber para procurar o player 16 em testObj usando a notação de colchetes.
+//Em seguida, atribua esse nome à variável do jogador.
+
+var testObj = {
+  12: "Namath",
+  16: "Montana",
+  19: "Unitas"
+};
+
+
+var playerNumber = 16;
+var player = testObj[16];
+var player = testObj[playerNumber];
+};
+
+//EXERCÍCIO PARA ATUALIZAR AS PROPRIEDADES DO OBJETO
+// Update the myDog object's name property. Let's change her name from "Coder" to "Happy Coder".
+// You can use either dot or bracket notation.
+
+var ourDog = {
+  "name": "Camper",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["everything!"]
+};
+
+ourDog.name = "Happy Camper";
+
+// Setup
+var myDog = {
+  "name": "Coder",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["freeCodeCamp Campers"]
+};
+
+myDog["name"] = "Happy Coder";
+
+//EXERCÍCIO PARA ADICIONAR NOVAS PROPRIEDADES A UM OBJETO QUE JÁ EXISTE
+//Add a "bark" property to myDog and set it to a dog sound, such as "woof".
+//You may use either dot or bracket notation.
+
+var ourDog = {
+  "name": "Camper",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["everything!"]
+};
+
+ourDog.bark = "bow-wow";
+
+
+var myDog = {
+  "name": "Happy Coder",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["freeCodeCamp Campers"]
+};
+
+myDog.bark = "woof woof";
+
+//EXERCÍCIO PARA DELETAR PROPRIEDADES DE UM OBJETO
+//Delete the "tails" property from myDog. You may use either dot or bracket notation.
+
+var ourDog = {
+  "name": "Camper",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["everything!"],
+  "bark": "bow-wow"
+};
+
+delete ourDog.bark;
+
+var myDog = {
+  "name": "Happy Coder",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["freeCodeCamp Campers"],
+  "bark": "woof"
+};
+
+delete myDog.tails;
+
+//EXERCÍCIO PARA USAR OBJETOS PARA PESQUISA. OBJETOS FUNCIONAM COMO UM DICIONÁRIO
+// Convert the switch statement into an object called lookup. Use it to look up val and assign the associated
+//string to the result variable.
+
+function phoneticLookup(val) {
+  var result = "";
+
+
+ var lookup = {
+  "alpha": "Adams",
+  "bravo": "Boston",
+  "charlie": "Chicago",
+  "delta": "Denver",
+  "echo": "Easy",
+  "foxtrot": "Frank"
+};
+result = lookup[val];
+
+  return result;
+}
+
+//OU
+
+function phoneticLookup(val) {
+
+  var lookup = {
+  "alpha": "Adams",
+  "bravo": "Boston",
+  "charlie": "Chicago",
+  "delta": "Denver",
+  "echo": "Easy",
+  "foxtrot": "Frank"
+  };
+
+  return lookup[val];
+}
+
+//EXERCÍCIO PARA TESTAR SE UMA PROPRIEDADE EXISTE EM UM OBJETO OU NÃO
+//Modify the function checkObj to test myObj for checkProp. If the property is found,
+//return that property's value. If not, return "Not Found".
+
+var myObj = {
+  gift: "pony",
+  pet: "kitten",
+  bed: "sleigh"
+};
+function checkObj(checkProp) {
+
+  if (myObj.hasOwnProperty(checkProp) === true) {
+    return myObj[checkProp];
+  } else {
+    return "Not Found";
+  }
+}
+
+//EXERCÍCIO PARA MANIPULAR OBJETOS COMPLEXOS
+//Add a new album to the myMusic array. Add artist and title strings,
+//release_year number, and a formats array of strings.
+
+var myMusic = [
+  { //esse objeto possui várias propriedades e também uma subpropriedade, um array aninhado chamado "formats"
+    "artist": "Billy Joel",
+    "title": "Piano Man",
+    "release_year": 1973,
+    "formats": [
+      "CD",
+      "8T",
+      "LP"
+    ],
+    "gold": true
+  }, // o fechamento das {} com vírgula indica o final do objeto
+  { //aqui iniciei outro objeto
+    "artist": "Wando",
+    "title": "Oi",
+    "release_year": 1980,
+    "formats": ["CD",
+                "LP",
+                "Video"],
+  }
+
+];
+
+//EXERCÍCIO PARA ACESSAR OBJETOS ANINHADOS
+//Access the myStorage object and assign the contents of the glove box property to the gloveBoxContents variable.
+//Use bracket notation for properties with a space in their name.
+
+var myStorage = {
+  "car": { //o objeto "car" contém o objeto "inside" aninhado
+    "inside": {
+      "glove box": "maps",
+      "passenger seat": "crumbs"
+     },
+    "outside": {
+      "trunk": "jack"
+    }
+  }
+};
+
+var gloveBoxContents = myStorage.car.inside["glove box"];
+
+//EXERCÍCIO PARA ACESSAR ARRAY ANINHADO DENTRO DE OBJETO
+// Retrieve the second tree from the variable myPlants using object dot
+//and array bracket notation.
+
+var myPlants = [
+  {
+    type: "flowers",
+    list: [
+      "rose",
+      "tulip",
+      "dandelion"
+    ]
+  },
+  {
+    type: "trees",
+    list: [
+      "fir",
+      "pine",
+      "birch"
+    ]
+  }
+];
+
+var secondTree = myPlants[1].list[1];
+</script>
+
+</html>

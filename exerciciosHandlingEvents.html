@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+  <head>
+    <title>Page Title</title>
+  </head>
+  <body>
+    <button onclick="show();">Clique Aqui</button>
+    <button id = "demo">Clique Aqui 2</button>
+    <p id="hora"></p>
+    <input type="text" id="name" onchange="change()">
+    <button id="test">Clique Aqui 3</button>
+    <form onsubmit="return validation()" method="post">
+      Number: <input type="text" name="num1" id="num1">
+      Repeat: <input type="text" name="num2" id="num2">
+      <input type="submit" id="enviar" value="Submit">
+    </form>
+  </body>
+
+
+<script>
+
+/*DISPLAY AN ALERT POPUP WHEN THE USER CLICKS A SPECIFIED BUTTON*/
+
+function show(){
+  alert("Oie");
+}
+
+
+
+/*ASSIGN AN EVENT HANDLER TO AN HTML ELEMENT */
+function eventHandler() {
+  var button = document.getElementById("demo");
+  /*nameless functions não precisam de nome, pois são invocadas por alguém,
+  nesse caso sempre que acontecer o onclick*/
+  button.onclick = function(){
+    var paragraph = document.getElementById("hora");
+    paragraph.innerHTML = new Date();
+  }
+}
+
+eventHandler();
+
+
+/*CALL AN EVENT HANDLER WHEN THE TEXT IN A TEXTBOX CHANGES AND FOCUS IS LOST FROM THE ELEMENT*/
+
+function change() {
+  var changeFont = document.getElementById("name");
+  changeFont.value = changeFont.value.toUpperCase(); //aqui eu não entendi direito esse value, usei porque estava na descrição do conteúdo que estudei
+}
+
+/*CREATE AN EVENT HANDLER THAT REMOVES ITSELF AFTER BEING EXECUTED*/
+function oi() {
+  var btn = document.getElementById("test");
+  btn.addEventListener("click", removeFunction);
+
+  function removeFunction() {
+    btn.removeEventListener("click", removeFunction);
+  }
+}
+
+/*FORM VALIDATION - THE TEXT IN BOTH FIELDS SHOULD BE THE SAME AND NOT BLANK TO PASS THE VALIDATION*/
+function validation() {
+  var n1 = document.getElementById("num1");
+  var n2 = document.getElementById("num2");
+  if(n1.value != "" && n2.value != "") {
+    if(n1.value == n2.value){
+      return true;
+    }
+  }
+  alert ("Os valores devem ser iguais e os campos não podem estar em branco.");
+  return false;
+}
+
+
+</script>
+
+</html>

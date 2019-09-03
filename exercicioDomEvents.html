@@ -1,0 +1,122 @@
+<html>
+<meta charset="utf-8">
+
+
+<p>hi</p>
+<p>hello</p>
+<p>hi</p>
+
+<div id ="demo">
+      <p>some text</p>
+      <p>some other text</p>
+</div>
+<img src="strawberry.png" alt=""/>
+<img id="myimg" src="orange.png" alt=""/>
+
+<a href="www.example.com">Clique aqui</a>
+
+<div id ="demos">some content</div>
+
+<ul id="list">
+  <li>oi</li>
+  <li>oie</li>
+  <li>olar</li>
+</ul>
+
+<div id="demo3">
+        <p id="p1">This is a paragraph.</p>
+        <p id="p2">This is another paragraph.</p>
+  </div>
+
+  <div id="par">
+    <p id="parChild">This is a paragraph.</p>
+    <h4>Esse daqui não será removido!<h4>
+  </div>
+
+  <div id="remove">
+    <p id="replace">This is a paragraph.</p>
+    <p id="replace2">This is a paragraph.</p>
+  </div>
+
+<script>
+//SELECTING ELEMENTS
+
+var arr = document.getElementsByTagName("p");
+for (var x = 0; x < arr.length; x++) {
+  arr[x].innerHTML = "Hi there";
+}
+
+//SELECTING ALL CHILD NODES OF AN ELEMENT AND CHANGE THEIR CONTENT
+var a = document.getElementById("demo");
+  var arr = a.childNodes;
+  for(var x=0;x<arr.length;x++) {
+    arr[x].innerHTML = "new text";
+  }
+
+/*CHANGING ATTRIBUTES
+ We can change the src attribute of an image:*/
+
+var el = document.getElementById("myimg");
+el.src="apple.png";
+
+//We can change de href attribute of a link:
+
+ var el = document.getElementsByTagName("a");
+ el[0].href="www.example2.com";
+
+//CHANGING ALL src attribute OF THE IMAGES
+
+var arr = document.getElementsByTagName("img");
+for(var x=0; x<arr.length; x++){
+  arr[x].src="demo.jpg";
+}
+
+/*ADDING AND REMOVING ELEMENTS
+Creating elements - a new paragraph*/
+
+var p = document.createElement("p");
+var node = document.createTextNode("Some new text");
+
+//adding the text to the paragraph
+
+p.appendChild(node);
+
+var div = document.getElementById("demos");
+
+//adding the paragraph to the div
+div.appendChild(p);
+
+//ADDING A NEW <li> ELEMENT TO THE <ul> ELEMENT WITH id="list"
+
+
+var el = document.createElement("li");
+var txt = document.createTextNode("Helloooo");
+el.appendChild(txt);
+var ul = document.getElementById("list");
+ul.appendChild(el);
+
+//REMOVING ELEMENTS - We must select the parent of the element and use the removeChild(node) method.
+var parent = document.getElementById("demo3");
+var child = document.getElementById("p1");
+parent.removeChild(child);
+
+//REMOVE THE NODE ELEMENT FROM THE PAGE (par is node's parent)
+
+var par = document.getElementById("par");
+var node = document.getElementById("parChild");
+par.removeChild(parChild);
+
+/*REPLACING ELEMENTS - used method element.replaceChild(newNode, oldNode)
+O código abaixo cria um novo elemento <p> que substitui o <p id="replace" que já existe*/
+
+var newElement = document.createElement("p");
+var creatingElement = document.createTextNode("This is new!");
+newElement.appendChild(creatingElement);
+
+var parent = document.getElementById("remove");
+var child = document.getElementById("replace");
+parent.replaceChild(newElement, child);
+
+</script>
+
+</html>
